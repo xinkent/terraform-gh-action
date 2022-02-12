@@ -8,8 +8,6 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("./credential/xinkent-cloudrun-sample-terraform.json")
-
   project = "xinkent-cloudrun-sample"
   region  = "asia-northeast1"
   zone    = "asia-northeast1-b"
