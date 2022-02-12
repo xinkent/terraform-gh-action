@@ -7,11 +7,20 @@ terraform {
   }
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "xinkent-terraform"
+    prefix = "terraform/state"
+  }
+}
+
 provider "google" {
   project = "xinkent-cloudrun-sample"
   region  = "asia-northeast1"
   zone    = "asia-northeast1-b"
 }
+
+
 
 resource "google_pubsub_topic" "sample_topic" {
   name = "sample-topic"
