@@ -17,7 +17,7 @@ terraform {
 provider "google" {
   project = "xinkent-cloudrun-sample"
   region  = "asia-northeast1"
-  zone    = "asia-northeast1-b"
+  zone    =   "asia-northeast1-b"
 }
 
 
