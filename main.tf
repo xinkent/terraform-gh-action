@@ -2,18 +2,25 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "3.5.0"
+      version = "4.10.0"
     }
   }
 }
 
-provider "google" {
-  credentials = file("./credential/xinkent-cloudrun-sample-terraform.json")
+terraform {
+  backend "gcs" {
+    bucket = "xinkent-terraform"
+    prefix = "terraform/state"
+  }
+}
 
+provider "google" {
   project = "xinkent-cloudrun-sample"
   region  = "asia-northeast1"
   zone    = "asia-northeast1-b"
 }
+
+
 
 resource "google_pubsub_topic" "sample_topic" {
   name = "sample-topic"
